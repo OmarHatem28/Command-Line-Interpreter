@@ -14,17 +14,29 @@ public class Terminal {
         root = new File("C:\\Users\\basem\\Desktop\\CLI root");
     }
 
-    public void cp(String source, String dest) throws IOException {
-        File fileSource = new File(source);
-        File fileDest = new File(dest);
-        Files.copy(fileSource.toPath(), fileDest.toPath());
-        //Files.walkFileTree(fileSource.toPath(), fileDest.toPath());
+    public void cp(String source, String dest) {
+        try {
+            File fileSource = new File(source);
+            File fileDest = new File(dest);
+            Files.copy(fileSource.toPath(), fileDest.toPath());
+            //Files.walkFileTree(fileSource.toPath(), fileDest.toPath());
+            System.out.println("1 File Copied Successfully.");
+        }
+        catch (Exception e){
+            System.out.println("Error "+e);
+        }
     }
 
-    public void mv(String source, String dest) throws IOException {
-        File fileSource = new File(source);
-        File fileDest = new File(dest);
-        Files.move(fileSource.toPath(), fileDest.toPath());
+    public void mv(String source, String dest) {
+        try{
+            File fileSource = new File(source);
+            File fileDest = new File(dest);
+            Files.move(fileSource.toPath(), fileDest.toPath());
+            System.out.println("1 File/Folder Moved Successfully.");
+        }
+        catch (Exception e){
+            System.out.println("Error "+e);
+        }
     }
 
     public void ls() {

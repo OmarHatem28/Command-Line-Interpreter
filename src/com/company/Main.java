@@ -7,6 +7,7 @@ public class Main extends Thread{
     public static void main(String[] args) {
 
         Parser parser = new Parser();
+        parser.parse("pwd");
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
         // cp     "C:\Users"    "E:\my test"    "|"    cd "E:\Users"

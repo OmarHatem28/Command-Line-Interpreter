@@ -24,10 +24,10 @@ public class Parser {
                 CLI.add(words[i]);
             }
         }
-        for(String w:CLI){
-            System.out.println(w);
-        }
-        System.out.println("=================================================");
+//        for(String w:CLI){
+//            System.out.println(w);
+//        }
+//        System.out.println("=================================================");
 
         File file;
 
@@ -43,9 +43,10 @@ public class Parser {
                         System.out.println("Invalid Path");
                         return false;
                     }
-                    args.add(CLI.get(1));
+                    terminal.cd(CLI.get(1));
+                    break;
                 }
-                cmd = "cd";
+                terminal.cd("");
                 break;
                 //======================================================================================================
             case "cp":
@@ -53,14 +54,7 @@ public class Parser {
                     System.out.println("Invalid Arguments cp takes 2 Arguments, Write help for more details");
                     return false;
                 }
-                for ( int i=1;i<CLI.size();i++){
-                    file = new File(CLI.get(i));
-                    if (!file.isDirectory()) {
-                        System.out.println("Path "+CLI.get(i)+" Is Invalid.");
-                        return false;
-                    }
-                    args.add(CLI.get(i));
-                }
+                terminal.cp(CLI.get(1),CLI.get(2));
                 cmd = "cp";
                 break;
                 //======================================================================================================
@@ -69,14 +63,7 @@ public class Parser {
                     System.out.println("Invalid Arguments mv takes 2 Arguments, Write help for more details");
                     return false;
                 }
-                for ( int i=1;i<CLI.size();i++){
-                    file = new File(CLI.get(i));
-                    if (!file.isDirectory()) {
-                        System.out.println("Path "+CLI.get(i)+" Is Invalid.");
-                        return false;
-                    }
-                    args.add(CLI.get(i));
-                }
+                terminal.mv(CLI.get(1),CLI.get(2));
                 cmd = "mv";
                 break;
                 //======================================================================================================
@@ -117,7 +104,7 @@ public class Parser {
                     System.out.println("Invalid Arguments pwd takes no Arguments, Write help for more details");
                     return false;
                 }
-                cmd = "pwd";
+                System.out.println(terminal.pwd());
                 break;
                 //======================================================================================================
             case "clear":
@@ -125,7 +112,7 @@ public class Parser {
                     System.out.println("Invalid Arguments clear takes no Arguments, Write help for more details");
                     return false;
                 }
-                cmd = "clear";
+                terminal.clear();
                 break;
                 //======================================================================================================
             case "ls":
@@ -133,7 +120,7 @@ public class Parser {
                     System.out.println("Invalid Arguments ls takes no Arguments, Write help for more details");
                     return false;
                 }
-                cmd = "ls";
+                terminal.ls();
                 break;
                 //======================================================================================================
             case "help":
@@ -149,7 +136,7 @@ public class Parser {
                     System.out.println("Invalid Arguments help takes no Arguments, Write help for more details");
                     return false;
                 }
-                cmd = "date";
+                terminal.date();
                 break;
                 //======================================================================================================
             case "args":
