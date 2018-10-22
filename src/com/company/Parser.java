@@ -7,9 +7,10 @@ public class Parser {
 
     public ArrayList<String> args = new ArrayList<>();
     public String cmd;
+    private Terminal terminal;
 
     public Parser(){
-
+        terminal = new Terminal();
     }
 
     public Boolean parse(String command){
@@ -174,8 +175,8 @@ public class Parser {
                     System.out.println("Invalid Arguments cat takes at least 1 Argument, Write help for more details");
                     return false;
                 }
-                /*for ( int i=0;i<CLI.size();i++){
-                    String path = term.pwd();
+                for ( int i=0;i<CLI.size();i++){
+                    String path = terminal.pwd();
                     path += "\\";
 
                     if ( CLI.get(i).equals(">") || new File(path+CLI.get(i)).isFile() ){
@@ -185,7 +186,7 @@ public class Parser {
                         System.out.println("Path "+CLI.get(i)+" Is Invalid.");
                         return false;
                     }
-                }*/
+                }
                 break;
                 //======================================================================================================
         }

@@ -9,7 +9,7 @@ public class Terminal {
     private static File curFile;
     private final File root;
 
-    Terminal() {
+    public Terminal() {
         curFile = new File("C:\\Users\\basem\\Desktop\\CLI root");
         root = new File("C:\\Users\\basem\\Desktop\\CLI root");
     }
@@ -33,8 +33,9 @@ public class Terminal {
             System.out.println(str);
     }
 
-    public void pwd() {
-        System.out.println(curFile.getPath());
+    public String pwd() {
+//        System.out.println(curFile.getPath());
+        return curFile.getPath();
     }
 
     public void clear() {
