@@ -1,8 +1,8 @@
 package com.company;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
+import java.util.Scanner;
 
 public class Terminal {
 
@@ -67,9 +67,47 @@ public class Terminal {
         System.out.println(java.time.LocalDate.now() + " " + java.time.LocalTime.now());
     }
 
-    public void cat(){
-
+    public void cat(String path){
+        File temp_file = new File(path);
+        try {
+            Scanner sc = new Scanner(temp_file);
+            sc.useDelimiter("\\Z");
+            System.out.println(sc.next());
+        }catch(FileNotFoundException ex){
+            System.out.println("File not found!");
+        }
     }
 
+    public void cat(String sourcePath,String destPath,boolean overwrite){
+        File temp_file1 = new File(sourcePath);
+        File temp_file2 = new File(destPath);
+        if(overwrite){ //using > operator
+            try {
+                Scanner sc = new Scanner(temp_file1);
+                sc.useDelimiter("\\Z");
+                BufferedWriter writer = new BufferedWriter(new FileWriter(temp_file2));
+                writer.write(sc.next());
+                writer.close();
+            }catch(FileNotFoundException ex){
+                System.out.println("File not found!");
+            }catch(IOException ioex){
+                System.out.println("Something went wrong!");
+            }
+        }
+        else{          //using >> operator (append)
+            try {
+                Scanner sc = new Scanner(temp_file1);
+                sc.useDelimiter("\\Z");
+                BufferedWriter writer = new BufferedWriter(new FileWriter(temp_file2,true));
+                writer.newLine();
+                writer.append(sc.next());
+                writer.close();
+            }catch(FileNotFoundException ex){
+                System.out.println("File not found!");
+            }catch(IOException ioex){
+                System.out.println("Something went wrong!");
+            }
+        }
+    }
 
 }

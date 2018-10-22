@@ -38,13 +38,29 @@ public class Parser {
                     return false;
                 }
                 if ( CLI.size() == 2 ){
-                    file = new File(CLI.get(1));
-                    if (!file.isDirectory()) {
-                        System.out.println("Invalid Path");
-                        return false;
+                    if ( CLI.get(1).equals("..") ){
+                        String path = terminal.pwd();
+                        for ( int i=path.length()-1;i>=0;i--){
+                            if ( path.charAt(i) == '\\' ){
+                                path = path.substring(0,i);
+                                break;
+                            }
+                        }
+                        terminal.cd(path);
+                        break;
                     }
-                    terminal.cd(CLI.get(1));
-                    break;
+                    file = new File(CLI.get(1));
+                    if ( file.isDirectory() ) {
+                        terminal.cd(CLI.get(1));
+                        break;
+                    }
+                    file = new File(terminal.pwd()+"\\"+CLI.get(1));
+                    if ( file.isDirectory() ){
+                        terminal.cd(terminal.pwd()+"\\"+CLI.get(1));
+                        break;
+                    }
+                    System.out.println("Invalid Path");
+                    return false;
                 }
                 terminal.cd("");
                 break;
@@ -104,7 +120,7 @@ public class Parser {
                     System.out.println("Invalid Arguments pwd takes no Arguments, Write help for more details");
                     return false;
                 }
-                System.out.println(terminal.pwd());
+                System.out.print(terminal.pwd() + "> ");
                 break;
                 //======================================================================================================
             case "clear":
@@ -162,20 +178,53 @@ public class Parser {
                     System.out.println("Invalid Arguments cat takes at least 1 Argument, Write help for more details");
                     return false;
                 }
-                for ( int i=0;i<CLI.size();i++){
-                    String path = terminal.pwd();
-                    path += "\\";
-
-                    if ( CLI.get(i).equals(">") || new File(path+CLI.get(i)).isFile() ){
-                        args.add(CLI.get(i));
+                int ind = -1;
+                boolean flag = false;
+                for ( int i=1;i<CLI.size();i++){
+                    if ( CLI.get(i).equals(">") ){
+                        ind = i;
+                        flag=true;
+                        break;
                     }
-                    else {
-                        System.out.println("Path "+CLI.get(i)+" Is Invalid.");
-                        return false;
+                    if ( CLI.get(i).equals(">>") ){
+                        ind = i;
+                        flag=false;
+                        break;
                     }
                 }
+                if ( ind == -1 ){
+                    for ( int i=1;i<CLI.size();i++){
+                        terminal.cat(CLI.get(i));
+                    }
+                    break;
+                }
+                else{
+                    for ( int i=1;i<ind && ind+1 < CLI.size();i++){
+                        terminal.cat(CLI.get(i),CLI.get(ind+1),flag);
+                        if ( flag ){
+                            flag = false;
+                        }
+                    }
+                }
+//                for ( int i=0;i<CLI.size();i++){
+//                    String path = terminal.pwd();
+//                    path += "\\";
+//
+//                    if ( CLI.get(i).equals(">") || new File(path+CLI.get(i)).isFile() ){
+//                        args.add(CLI.get(i));
+//                    }
+//                    else {
+//                        System.out.println("Path "+CLI.get(i)+" Is Invalid.");
+//                        return false;
+//                    }
+//                }
                 break;
                 //======================================================================================================
+            case "exit":
+                System.exit(0);
+                break;
+                //======================================================================================================
+
         }
         return true;
     }
