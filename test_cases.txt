@@ -1,0 +1,14 @@
+MV
+---
+mv "E:\Downloads\test\test.txt" "E:\Downloads\what.txt"
+
+mv "E:\test" "E:\Downloads\my test"
+_____________________________________________________________________________________________________________________________________
+CAT
+----
+cat "E:\Downloads\a.txt" "E:\Downloads\b.txt"
+
+cat "E:\Downloads\a.txt" "E:\Downloads\b.txt" > "E:\Downloads\c.txt"
+
+cat "E:\Downloads\a.txt" "E:\Downloads\b.txt" >> "E:\Downloads\c.txt"
+_____________________________________________________________________________________________________________________________________

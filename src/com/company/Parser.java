@@ -144,6 +144,7 @@ public class Parser {
                     System.out.println("Invalid Arguments help takes no Arguments");
                     return false;
                 }
+                terminal.help();
                 cmd = "help";
                 break;
                 //======================================================================================================
@@ -161,7 +162,7 @@ public class Parser {
                     return false;
                 }
                 cmd = "args";
-                args.add(CLI.get(1));
+                System.out.println(terminal.args(CLI.get(1)));
                 break;
                 //======================================================================================================
             case "more":
