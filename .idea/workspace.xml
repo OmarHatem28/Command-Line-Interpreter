@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Terminal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_cases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test_cases.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,7 +20,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="211">
               <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
             </state>
           </provider>
@@ -28,8 +29,8 @@
       <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="164" column="35" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
+            <state relative-caret-position="160">
+              <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#224#225#0" expanded="true" />
@@ -42,8 +43,8 @@
       <file leaf-file-name="Terminal.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Terminal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-503">
-              <caret line="57" column="48" lean-forward="true" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+            <state relative-caret-position="313">
+              <caret line="247" column="67" lean-forward="true" selection-start-line="247" selection-start-column="67" selection-end-line="247" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,6 +64,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>words</find>
+      <find>discreption</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -80,9 +82,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="1388" />
-    <option name="height" value="1089" />
+    <option name="x" value="-10" />
+    <option name="width" value="1390" />
+    <option name="height" value="1090" />
   </component>
   <component name="ProjectView">
     <navigator currentView="PackagesPane" proportions="" version="1">
@@ -220,6 +222,93 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2788">
+          <caret line="164" column="35" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Terminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2788">
+          <caret line="164" column="35" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Terminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="164" column="35" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Terminal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="57" column="48" lean-forward="true" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -393,15 +482,15 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/Another.java" />
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="211">
           <caret line="26" column="37" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="164" column="35" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
+        <state relative-caret-position="160">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#224#225#0" expanded="true" />
@@ -412,8 +501,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Terminal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-503">
-          <caret line="57" column="48" lean-forward="true" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+        <state relative-caret-position="313">
+          <caret line="247" column="67" lean-forward="true" selection-start-line="247" selection-start-column="67" selection-end-line="247" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

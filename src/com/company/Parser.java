@@ -29,6 +29,10 @@ public class Parser {
 //        }
 //        System.out.println("=================================================");
 
+        if ( CLI.size() == 0 ){
+            return false;
+        }
+
         File file;
 
         switch ( CLI.get(0) ){
@@ -88,12 +92,7 @@ public class Parser {
                     System.out.println("Invalid Arguments rm takes 1 Argument, Write help for more details");
                     return false;
                 }
-                file = new File(CLI.get(1));
-                if (!file.isDirectory()) {
-                    System.out.println("Invalid Path");
-                    return false;
-                }
-                args.add(CLI.get(1));
+                terminal.rm(CLI.get(1));
                 cmd = "rm";
                 break;
                 //======================================================================================================
@@ -102,7 +101,7 @@ public class Parser {
                     System.out.println("Invalid Arguments mkdir takes 1 Argument, Write help for more details");
                     return false;
                 }
-                args.add(CLI.get(1));
+                terminal.mkdir(CLI.get(1));
                 cmd = "mkdir";
                 break;
                 //======================================================================================================
@@ -111,7 +110,7 @@ public class Parser {
                     System.out.println("Invalid Arguments rmdir takes 1 Argument, Write help for more details");
                     return false;
                 }
-                args.add(CLI.get(1));
+                terminal.rmdir(CLI.get(1));
                 cmd = "rmdir";
                 break;
                 //======================================================================================================
@@ -171,7 +170,7 @@ public class Parser {
                     return false;
                 }
                 cmd = "more";
-                args.add(CLI.get(1));
+                terminal.more(CLI.get(1));
                 break;
                 //======================================================================================================
             case "cat":

@@ -1,14 +1,14 @@
 MV
 ---
-mv "E:\Downloads\test\test.txt" "E:\Downloads\what.txt"
+mv "F:\Downloads\test\test.txt" "E:\Downloads\what.txt"
 
-mv "E:\test" "E:\Downloads\my test"
+mv "F:\test" "E:\Downloads\my test"
 _____________________________________________________________________________________________________________________________________
 CAT
 ----
-cat "E:\Downloads\a.txt" "E:\Downloads\b.txt"
+cat "F:\Downloads\a.txt" "E:\Downloads\b.txt"
 
-cat "E:\Downloads\a.txt" "E:\Downloads\b.txt" > "E:\Downloads\c.txt"
+cat "F:\Downloads\a.txt" "E:\Downloads\b.txt" > "E:\Downloads\c.txt"
 
-cat "E:\Downloads\a.txt" "E:\Downloads\b.txt" >> "E:\Downloads\c.txt"
+cat "F:\Downloads\a.txt" "E:\Downloads\b.txt" >> "E:\Downloads\c.txt"
 _____________________________________________________________________________________________________________________________________

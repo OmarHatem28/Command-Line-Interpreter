@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,7 +10,7 @@ public class Terminal {
     private static File curFile;
     private final File root;
     private final ArrayList<String> allCommands = new ArrayList<>();
-    private final ArrayList<String> discreption = new ArrayList<>();
+    private final ArrayList<String> description = new ArrayList<>();
     private final ArrayList<String> argNeeded = new ArrayList<>();
 
     public Terminal() {
@@ -22,63 +21,63 @@ public class Terminal {
 
     private void fillCommands() {
         allCommands.add("cd");
-        discreption.add(" : Change Directory");
+        description.add(" : Change Directory");
         argNeeded.add("Takes Required Destination Path");
 
         allCommands.add("cp");
-        discreption.add(" : Copy A file");
+        description.add(" : Copy A file");
         argNeeded.add("Takes Source File Path & Destination File Path");
 
         allCommands.add("ls");
-        discreption.add(" : List all Files/Folders in current directory");
+        description.add(" : List all Files/Folders in current directory");
         argNeeded.add("Doesn't have Arguments");
 
         allCommands.add("rm");
-        discreption.add(" : Remove a File");
+        description.add(" : Remove a File");
         argNeeded.add("Takes the Required File Path");
 
         allCommands.add("mv");
-        discreption.add(" : Move a File/Folder");
+        description.add(" : Move a File/Folder");
         argNeeded.add("Takes Source File Path & Destination File Path");
 
         allCommands.add("cat");
-        discreption.add(" : Print Content of 1 or more files to the terminal or to another file. \">\" to override the file and \">>\" to append to file");
+        description.add(" : Print Content of 1 or more files to the terminal or to another file. \">\" to override the file and \">>\" to append to file");
         argNeeded.add("cat file1 file2,fileN or file1,file2,fileN > fileX or file1,file2,fileN >> fileX");
 
         allCommands.add("pwd");
-        discreption.add(" : Print Working Directory");
+        description.add(" : Print Working Directory");
         argNeeded.add("Doesn't have Arguments");
 
         allCommands.add("more");
-        discreption.add(" : Print Content of a file with a scrollable manner");
+        description.add(" : Print Content of a file with a scrollable manner");
         argNeeded.add("Path to file Required");
 
         allCommands.add("help");
-        discreption.add(" : Print the description of all the commands");
+        description.add(" : Print the description of all the commands");
         argNeeded.add("Doesn't have Arguments");
 
         allCommands.add("args");
-        discreption.add(" : Print the required arguments for a specific command");
+        description.add(" : Print the required arguments for a specific command");
         argNeeded.add("Takes a specific Command");
 
         allCommands.add("date");
-        discreption.add(" : Print Current Date/Time");
+        description.add(" : Print Current Date/Time");
         argNeeded.add("Doesn't have Arguments");
 
         allCommands.add("exit");
-        discreption.add(" : Terminate the process");
+        description.add(" : Terminate the process");
         argNeeded.add("Doesn't have Arguments");
 
         allCommands.add("mkdir");
-        discreption.add(" : Make new Directory");
+        description.add(" : Make new Directory");
         argNeeded.add("Takes the name of the new Directory");
 
         allCommands.add("rmdir");
-        discreption.add(" : Remove Directory");
+        description.add(" : Remove Directory");
         argNeeded.add("Takes the name of the Directory");
 
         allCommands.add("clear");
-        discreption.add(" : Clear Terminal Screen");
+        description.add(" : Clear Terminal Screen");
         argNeeded.add("Doesn't have Arguments");
     }
 
@@ -109,6 +108,10 @@ public class Terminal {
 
     public void ls() {
         String arr[] = curFile.list();
+        if ( arr.length == 0 ){
+            System.out.println("Folder Is Empty");
+            return;
+        }
         for (String str : arr)
             System.out.println(str);
     }
@@ -138,6 +141,7 @@ public class Terminal {
     public void cat(String path){
         File temp_file = new File(path);
         try {
+            System.out.println(temp_file.getName());
             Scanner sc = new Scanner(temp_file);
             sc.useDelimiter("\\Z");
             System.out.println(sc.next());
@@ -180,7 +184,7 @@ public class Terminal {
 
     public void help(){
         for ( int i=0;i<allCommands.size();i++){
-            System.out.println(allCommands.get(i) + discreption.get(i));
+            System.out.println(allCommands.get(i) + description.get(i));
         }
     }
 
@@ -191,5 +195,73 @@ public class Terminal {
             }
         }
         return "";
+    }
+
+    public void more(String name){
+        String path = pwd() + "\\" + name;
+        File temp_file = new File(path);
+        try{
+            System.out.println(temp_file.getName());
+            Scanner sc = new Scanner(temp_file);
+            Scanner doesNothing = new Scanner(System.in);
+            while(sc.hasNextLine()){
+                for(int i=0;i<10;i++) {
+                    if (!sc.hasNextLine())
+                        break;
+                    System.out.println(sc.nextLine());
+                }
+                String dummy = doesNothing.nextLine();
+            }
+            System.out.println("End of file.");
+        }catch(FileNotFoundException ex){
+            System.out.println("File not found!");
+        }
+    }
+
+    public void mkdir(String name){
+        String path = pwd() + "\\" + name;
+        File dir = new File(path);
+        if(!dir.exists()){
+            dir.mkdirs();
+            // mkdirs creates non-existent parent directories in path
+            // mkdir doesn't
+        }
+    }
+
+    public void rmdir(String name){
+        String path = pwd() + "\\" + name;
+        File dir= new File(path);
+        if(dir.exists() && dir.isDirectory()){
+            File[] files = dir.listFiles();
+            for(int i=0; i<files.length; i++) {
+                if(files[i].isDirectory()) {
+                    rmdir(files[i].getPath());
+                }
+                else {
+                    files[i].delete();
+                }
+            }
+            if ( dir.delete() ){
+                System.out.println("Folder "+name+" Deleted Successfully");
+                return;
+            } else {
+                System.out.println("Couldn't Delete Folder "+name);
+                return;
+            }
+
+        }
+        else {
+            System.out.println("Folder Doesn't Exist");
+            return;
+        }
+    }
+
+    public void rm(String path){
+        File file= new File(path);
+        if(file.exists() && file.isFile()){
+            file.delete();
+        }
+        else
+            System.out.println("File doesn't exist!");
     }
 }
