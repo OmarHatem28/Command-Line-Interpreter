@@ -110,7 +110,8 @@ public class Parser {
                     System.out.println("Invalid Arguments rmdir takes 1 Argument, Write help for more details");
                     return false;
                 }
-                terminal.rmdir(CLI.get(1));
+                String path = terminal.pwd() + "\\" + CLI.get(1);
+                terminal.rmdir(path);
                 cmd = "rmdir";
                 break;
                 //======================================================================================================

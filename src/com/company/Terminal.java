@@ -14,8 +14,8 @@ public class Terminal {
     private final ArrayList<String> argNeeded = new ArrayList<>();
 
     public Terminal() {
-        curFile = new File("C:\\Users\\basem\\Desktop\\CLI root");
-        root = new File("C:\\Users\\basem\\Desktop\\CLI root");
+        curFile = new File("E:\\Downloads\\FCI\\Year 3\\Term 1\\OS\\Java_Projects\\CLI");
+        root = new File("E:\\Downloads\\FCI\\Year 3\\Term 1\\OS\\Java_Projects\\CLI");
         fillCommands();
     }
 
@@ -122,7 +122,7 @@ public class Terminal {
     }
 
     public void clear() {
-        for(int i=0;i<20;i++)
+        for(int i=0;i<50;i++)
             System.out.println();
     }
 
@@ -228,8 +228,7 @@ public class Terminal {
         }
     }
 
-    public void rmdir(String name){
-        String path = pwd() + "\\" + name;
+    public void rmdir(String path){
         File dir= new File(path);
         if(dir.exists() && dir.isDirectory()){
             File[] files = dir.listFiles();
@@ -242,10 +241,10 @@ public class Terminal {
                 }
             }
             if ( dir.delete() ){
-                System.out.println("Folder "+name+" Deleted Successfully");
+                System.out.println("Folder Deleted Successfully");
                 return;
             } else {
-                System.out.println("Couldn't Delete Folder "+name);
+                System.out.println("Couldn't Delete Folder");
                 return;
             }
 
